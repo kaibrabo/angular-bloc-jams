@@ -1,0 +1,67 @@
+<section class="player-bar">
+
+	<div class="container">
+
+		<div class="control-group main-controls">
+
+			<a class="previous">
+				<span class="ion-ios-arrow-back"></span>
+			</a>
+			
+			<!---------play/pause------>
+			<span ng-mouseover="hovered = true" ng-mouseleave="hovered = false">
+				
+				<a ng-show="!playing || hovered"><span class="ion-play"></span></a>
+
+				<a ng-show="playing"><span class="ion-pause"></span></a>
+				<!-- -->
+
+				<a class="next">
+					<span class="ion-ios-arrow-forward"></span>
+				</a>
+			</span>
+		</div>
+
+		<div class="control-group currently-playing">
+
+			<h2 class="song-name"></h2>
+
+			<h3 class="artist-name"></h3>
+
+			<h2 class="artist-song-mobile"></h2>
+
+			<div class="seek-control">
+
+				<div class="seek-bar">
+
+					<div class="fill"></div>
+
+					<div class="thumb"></div>
+
+				</div>
+
+				<div class="current-time" id="timeleft">0:00</div>
+
+				<div class="total-time">0:00</div>
+
+			</div>
+
+		</div>
+
+		<div class="control-group volume">
+
+			<span class="ion-ios-volume-high icon"></span>
+
+			<div class="seek-bar">
+
+				<div class="fill"></div>
+
+				<div class="thumb"></div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</section>
