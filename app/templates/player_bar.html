@@ -11,9 +11,9 @@
 			<!---------play/pause------>
 			<span ng-mouseover="hovered = true" ng-mouseleave="hovered = false">
 				
-				<a ng-show="!playing || hovered"><span class="ion-play"></span></a>
+				<a class="play-pause" ng-show="!playing"><span class="ion-play"></span></a>
 
-				<a ng-show="playing"><span class="ion-pause"></span></a>
+				<a class="play-pause" ng-show="playing"><span class="ion-pause"></span></a>
 				<!-- -->
 
 				<a class="next">
