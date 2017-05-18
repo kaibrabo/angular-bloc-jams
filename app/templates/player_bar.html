@@ -1,34 +1,49 @@
-<section class="player-bar">
+<section class="player-bar" ng-controller="PlayerBarCtrl as playerBar">
 
 	<div class="container">
 
 		<div class="control-group main-controls">
 
-			<a class="previous">
+			<a class="previous" ng-click="playerBar.songPlayer.previous()">
 				<span class="ion-ios-arrow-back"></span>
 			</a>
 			
 			<!---------play/pause------>
 			<span ng-mouseover="hovered = true" ng-mouseleave="hovered = false">
 				
-				<a class="play-pause" ng-show="!playing"><span class="ion-play"></span></a>
+				<a class="play-pause">
+					
+					<span class="ion-play"
+						  ng-show="!song.playing"
+						  ng-click="playerBar.songPlayer.play(song)">
+					</span>
+					<span class="ion-pause"
+						  ng-show="song.playing"
+						  ng-click="playerBar.songPlayer.pause(song)">
+					</span>
 
-				<a class="play-pause" ng-show="playing"><span class="ion-pause"></span></a>
-				<!-- -->
-
-				<a class="next">
-					<span class="ion-ios-arrow-forward"></span>
 				</a>
 			</span>
+				<!-- -->
+
+			<a class="next" ng-click="playerBar.songPlayer.next()">
+				<span class="ion-ios-arrow-forward"></span>
+			</a>
 		</div>
 
 		<div class="control-group currently-playing">
 
-			<h2 class="song-name"></h2>
+			<h2 class="song-name">
+				{{ playerBar.albumData.songs.title }}
+			</h2>
 
-			<h3 class="artist-name"></h3>
+			<h3 class="artist-name">
+				{{ playerBar.albumData.artist }}
+			</h3>
 
-			<h2 class="artist-song-mobile"></h2>
+			<h2 class="artist-song-mobile">
+				{{ playerBar.albumData.artist }} - {{ playerBar.albumData.title }}
+			</h2>
 
 			<div class="seek-control">
 
@@ -42,7 +57,8 @@
 
 				<div class="current-time" id="timeleft">0:00</div>
 
-				<div class="total-time">0:00</div>
+				<div class="total-time">
+					{{ playerBar.albumData.songs.duration * 1000 | date: 'm : ss' }}</div>
 
 			</div>
 
