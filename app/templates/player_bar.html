@@ -14,12 +14,12 @@
 				<a class="play-pause">
 					
 					<span class="ion-play"
-						  ng-show="!song.playing"
-						  ng-click="playerBar.songPlayer.play(song)">
+						  ng-show="!playerBar.songPlayer.currentSong.playing"
+						  ng-click="playerBar.songPlayer.play()">
 					</span>
 					<span class="ion-pause"
-						  ng-show="song.playing"
-						  ng-click="playerBar.songPlayer.pause(song)">
+						  ng-show="playerBar.songPlayer.currentSong.playing"
+						  ng-click="playerBar.songPlayer.pause()">
 					</span>
 
 				</a>
@@ -34,7 +34,7 @@
 		<div class="control-group currently-playing">
 
 			<h2 class="song-name">
-				{{ playerBar.albumData.songs.title }}
+				{{ playerBar.songPlayer.currentSong.title }}
 			</h2>
 
 			<h3 class="artist-name">
@@ -47,18 +47,12 @@
 
 			<div class="seek-control">
 
-				<div class="seek-bar">
-
-					<div class="fill"></div>
-
-					<div class="thumb"></div>
-
-				</div>
+				<seek-bar></seek-bar>
 
 				<div class="current-time" id="timeleft">0:00</div>
 
 				<div class="total-time">
-					{{ playerBar.albumData.songs.duration * 1000 | date: 'm : ss' }}</div>
+					{{ playerBar.songPlayer.currentSong.duration * 1000 | date: 'm : ss' }}</div>
 
 			</div>
 
@@ -68,13 +62,7 @@
 
 			<span class="ion-ios-volume-high icon"></span>
 
-			<div class="seek-bar">
-
-				<div class="fill"></div>
-
-				<div class="thumb"></div>
-
-			</div>
+			<seek-bar></seek-bar>
 
 		</div>
 
