@@ -47,9 +47,9 @@
 
 			<div class="seek-control">
 
-				<seek-bar></seek-bar>
+				<seek-bar value="{{ playerBar.songPlayer.currentTime }}" max="{{ playerBar.songPlayer.currentSong.duration }}" on-change="playerBar.songPlayer.setCurrentTime(value)"></seek-bar>
 
-				<div class="current-time" id="timeleft">0:00</div>
+				<div class="current-time" id="timeleft"> {{ playerBar.songPlayer.currentTime * 1000 | date: 'm : ss' }} </div>
 
 				<div class="total-time">
 					{{ playerBar.songPlayer.currentSong.duration * 1000 | date: 'm : ss' }}</div>
@@ -61,8 +61,9 @@
 		<div class="control-group volume">
 
 			<span class="ion-ios-volume-high icon"></span>
+			
 
-			<seek-bar></seek-bar>
+			<seek-bar value="{{ playerBar.songPlayer.volume }}" max="100" on-change="playerBar.songPlayer.setVolume(value)"></seek-bar>
 
 		</div>
 
