@@ -27,6 +27,7 @@
 		SongPlayer.volume = 80;
 		
 		var getSongIndex = function(song) {
+			
 			return currentAlbum.songs.indexOf(song);
 		};
 		
