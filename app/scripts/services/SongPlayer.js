@@ -99,7 +99,7 @@
 				
 				if (currentBuzzObject.isPaused()) {
 					
-					console.log(currentBuzzObject, 'this is current buzz object2');
+					currentBuzzObject;
 					
 					currentBuzzObject.play();
 				}
@@ -154,6 +154,7 @@
          		playSong(song);
      		}
 		};
+		
 		
 		/**
 		* @function setCurrentTime
