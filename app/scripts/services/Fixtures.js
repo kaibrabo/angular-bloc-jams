@@ -1,7 +1,7 @@
 (function(){
 	function Fixtures() {
 		var Fixtures = {};
-		
+
 		var albumPicasso = {
 			title: 'The Colors',
 			artist: 'Pablo Picasso',
@@ -46,22 +46,23 @@
 				{ title: 'South Central Love', duration: '3:07'}
 			]
 		};
-		
+
 		Fixtures.getAlbum = function(){
 			return albumPicasso;
 		};
-		
+
 		Fixtures.getCollection = function(numberOfAlbums){
 			var arr = [];
-			while(arr.length < numberOfAlbums) { 		arr.push(albumPicasso); 
+			while(arr.length < numberOfAlbums) {
+				arr.push(albumPicasso);
 			}
 			return arr;
 		};
 
 		return Fixtures;
 	}
-	
-	angular 
+
+	angular
 		.module('blocJams')
 		.factory('Fixtures', Fixtures);
 })();

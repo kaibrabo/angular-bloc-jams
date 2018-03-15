@@ -7,12 +7,12 @@
 			<a class="previous" ng-click="playerBar.songPlayer.previous()">
 				<span class="ion-ios-arrow-back"></span>
 			</a>
-			
+
 			<!---------play/pause------>
 			<span ng-mouseover="hovered = true" ng-mouseleave="hovered = false">
-				
+
 				<a class="play-pause">
-					
+
 					<span class="ion-play"
 						  ng-show="!playerBar.songPlayer.currentSong.playing"
 						  ng-click="playerBar.songPlayer.play()">
@@ -51,19 +51,20 @@
 
 				<div class="current-time" id="timeleft"> {{ playerBar.songPlayer.currentTime * 1000 | date: 'm : ss' }} </div>
 
-				<div class="total-time"> 
-					{{ playerBar.songPlayer.currentSong.duration * 1000 | date: 'm : ss' }}</div>
+				<div class="total-time">
+					{{ (playerBar.songPlayer.currentSong.duration) ? (playerBar.songPlayer.currentSong.duration * 1000 | date: 'm : ss') :
+					"-:-" }}</div>
 
 			</div>
 
 		</div>
 
 		<div class="control-group volume">
-			
+
 				<a class="volume">
 					<span class="ion-ios-volume-high icon" ng-click="playerBar.songPlayer.setVolume(0)"></span>
 				</a>
-			
+
 			<seek-bar value="{{ playerBar.songPlayer.volume }}" max="100" on-change="playerBar.songPlayer.setVolume(value)"></seek-bar>
 
 		</div>
